@@ -53041,8 +53041,22 @@ let countrydata=[
 }
 ]
 
-// let names=countrydata.map((e)=>e.name.common)
-// console.log(names)
+let names=countrydata.filter((e)=>{
+if(e.region==="Asia"){
+console.log(e.name)
+}
+})
  
     let data = countrydata.filter(e => e.population<200000);
     console.log(data);
+    countrydata.forEach(e=>
+        {
+            console.log(`Name:${e.name.common}`)
+            console.log(`Capital:${e.capital}`)
+            console.log(`Flag:${e.flag}`)
+        })
+    let total=countrydata.reduce((acc,currentvalue)=>acc+currentvalue.population,0)
+console.log(`Total population ${total}`)
+
+let currency = countrydata.filter(e => e.currencies?.USD!==undefined).map(e => e.name.common);
+console.log(currency);
